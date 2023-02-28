@@ -2,7 +2,7 @@ import time
 from absl import app, logging
 import cv2
 import numpy as np
-from flask import Flask, request, Response, jsonify, send_from_directory, abort
+from flask import Flask, request, Response, jsonify, send_from_directory, abort, render_template
 import os
 import sys
 from subprocess import call
@@ -19,8 +19,9 @@ def run_cmd(command):
 # Initialize Flask application
 app = Flask(__name__)
 @app.route('/')
-def home():
-    return 'flask web app'
+def index():
+   print('Request for index page received')
+   return render_template('index.html')
 
 # API that returns image with detections on it
 @app.route('/image', methods= ['POST'])
