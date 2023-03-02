@@ -7,4 +7,5 @@ easydict
 matplotlib
 pillow
 flask
+flask-cors
 
